@@ -1,0 +1,37 @@
+
+{% for m in member %}
+<li class="my-4">
+    <div
+        class="
+        alert
+        fade
+        show
+        dropdown-item
+        p-1
+        m-0
+        d-flex
+        align-items-center
+        justify-content-between
+        "
+        role="alert"
+        >
+        <a href="/member_profile/{{m.id}}" style="text-decoration: none; color: black;">
+            <div class="d-flex align-items-center">
+                <img
+                src="{{m.avatar.url}}"
+                alt="avatar"
+                class="rounded-circle me-2"
+                style="width: 35px; height: 35px; object-fit: cover"
+                />
+                <p class="m-0">{{m.fname}} {{m.lname}}</p>
+            </div>
+        </a>
+        <button
+        type="button"
+        class="btn-close p-0 m-0"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+        ></button>
+    </div>
+</li>
+{% endfor %}

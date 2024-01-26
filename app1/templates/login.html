@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <!-- main style -->
+    <link rel="stylesheet" href="{% static 'main.css'%}" />
+    <title>Heroes Gym Login</title>
+
+</head>
+<body class="bg-dark">
+    <!-- Login -->
+    
+    <div class="container mt-5 pt-5 d-flex align-items-start flex-column flex-lg-row justify-content-evenly">
+      <!-- heading -->
+      
+      <div class="text-center text-lg-start mt-0 pt-0 mt-lg-0 pt-lg-0">
+        <div>
+          <h1 class="text-warning text-center w-75 mx-auto fs-1 mx-lg-0 mt-0">نادي الابطال</h3>
+          <img style="height: 25rem; width: auto; " class="w-75 mx-auto fs-1 mx-lg-0" src="{% static 'gym_logo.png'%}"  alt="">
+          
+        </div>
+        
+      </div>
+      <!-- form card -->
+      <div style=" max-width: 28rem; width: 100%">
+        <!-- login form -->
+        <!-- first was form tag -->
+        <div id="fademotaz" class="bg-secondary.bg-gradient shadow rounded p-3 input-group-lg">
+          <form action="/" method="POST">
+            {% csrf_token %}
+            <input type="email" name='email' class="form-control my-3" placeholder="البريد الالكتروني" />
+            <input type="password" name="password" class="form-control my-3" placeholder="كلمة المرور" />
+            <button type="submit" class="btn btn-primary w-100 my-1">تسجيل الدخول</button>
+          </form>
+          <!-- create form -->
+          <hr />
+          <div class="text-center my-0">
+            <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#createModal">انشاء حساب جديد</button>
+          </div>
+          <!-- create modal -->
+          <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- head -->
+                <div class="modal-header">
+                  <div>
+                    <h2 class="modal-title" id="exampleModalLabel">تسجيل مستخدم جديد</h2>
+                    <span class="text-muted fs-7">It's quick and easy.</span>
+                  </div>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                  <form method="Post" action="/registration">
+                    {% csrf_token %}
+                    <!-- names -->
+                    <div class="row">
+                      <div class="col">
+                        <input type="text" name="fname" class="form-control" placeholder="الاسم الاول" />
+                      </div>
+                      <div class="col">
+                        <input type="text" name="lname" class="form-control" placeholder="اسم العائلة" />
+                      </div>
+                    </div>
+                    <!-- email & pass -->
+                    <input type="email" name="email" class="form-control my-3" placeholder="البريد الالكتروني" />
+                    <input type="password" name="password" class="form-control my-3" placeholder="الكلمة السرية" />
+                    <input type="password" name="confirm" class="form-control my-3" placeholder="تأكيدالكلمة السرية" />
+                    <input type="password" name="code" class="form-control my-3" placeholder="ادخل رمز التحقق من صاحب الموقع" />
+                    <div>
+                        <span class="text-muted fs-7">By clicking Sign Up, you agree to our Terms, Data Policy....</span>
+                    </div>
+                    <!-- btn -->
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal">التسجيل</button>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
+            <!-- modal end -->
+        </div>
+        </div>
+    </div>
+    </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="{% static 'main.js'%}"></script>
+</html>

@@ -1,0 +1,12 @@
+asgiref==3.7.2
+bcrypt==4.1.2
+Django==5.0.1
+django-bootstrap-datepicker-plus==2.0.0
+pillow==10.2.0
+python-datauri==0.2.6
+python-dateutil==2.7.0
+pytz==2020.1
+six==1.15.0
+sqlparse==0.4.4
+typing_extensions==4.9.0
+tzdata==2023.4
